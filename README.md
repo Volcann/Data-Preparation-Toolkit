@@ -2,6 +2,20 @@
 
 Welcome to **DataCraftTools**, your comprehensive guide and toolkit for mastering essential data preparation techniques in Python! 🐍 This repository offers detailed examples and practical code snippets for data cleaning, transformation, feature engineering, and exploratory data analysis (EDA) using powerful libraries like Pandas, NumPy, Matplotlib, and Scikit-learn. Whether you're a data enthusiast, analyst, or aspiring data scientist, this toolkit will equip you with the skills to efficiently process and analyze datasets for actionable insights.
 
+## 📊 Data Analysis Process
+- Asking Questions
+- Data Wrangling
+  a. Gathering Data
+  - `i. CSV files`
+  - `ii. APIs`
+  - `iii. Web Scraping`
+  - `iv. Databases `
+  b. Assessing Data
+  c. Cleaning Data
+- Exploratory Data Analysis
+- Drawing Conclusion
+- Comunicating Results
+
 ## 🗂️ Essential Topics Covered
 
 ### 🧹 Data Cleaning

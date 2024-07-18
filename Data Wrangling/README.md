@@ -4,7 +4,7 @@ The process of cleaning, transforming, and organizing raw data into a structured
 ### What is Data Wrangling? 🛠️
 Data wrangling, or data munging, involves cleaning, transforming, and organizing raw data into a structured format for analysis. It's essential for ensuring data quality and usability.
 
-#### Key Steps:
+### Key Steps ⭐️:
 1. **🟪 Data Collection and Gathering Data** 📊
 2. **🟪 Assessing Data** 🔄
 3. **🟪 Data Cleaning** 🧼

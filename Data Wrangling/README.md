@@ -7,7 +7,7 @@ Data wrangling, or data munging, involves cleaning, transforming, and organizing
 #### Key Steps:
 1. **🟪 Data Collection and Gathering Data** 📊
 2. **🟪 Assessing Data** 🔄
-3. 3. **🟪 Data Cleaning** 🧼
+3. **🟪 Data Cleaning** 🧼
 
 ## Detail Description 🗒️
 1. **🟪 Data Collection and Gathering Data** 📊

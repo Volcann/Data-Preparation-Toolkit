@@ -15,10 +15,10 @@ Whether you're a beginner or aspiring data scientist, this toolkit will help you
 1. **Asking Questions**
 2. **Data Wrangling**
    - 🟪 Gathering Data
-      i. `CSV files`
-      ii. `APIs`
-      iii. `Web Scraping`
-      iv. `Databases`
+      - i. `CSV files`
+      - ii. `APIs`
+      - iii. `Web Scraping`
+      - iv. `Databases`
    - 🟪 Assessing Data
    - 🟪 Cleaning Data
 3. **Exploratory Data Analysis**

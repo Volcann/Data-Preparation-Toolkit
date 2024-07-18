@@ -3,10 +3,10 @@
 Welcome to **DataCraftTools**, your go-to guide for essential data preparation in Python! 🐍 This repository provides easy-to-follow examples and code for data cleaning, transformation, feature engineering, and exploratory data analysis (EDA) using:
 
 ## Tools 🔧 
-- **Pandas**: Your Swiss Army knife for data manipulation and analysis.
-- **NumPy**: The fundamental package for numerical computing in Python.
-- **Matplotlib**: Create static, animated, and interactive visualizations.
-- **Seaborn**: Beautiful visualizations for statistical data analysis.
+- **`Pandas`**: Your Swiss Army knife for data manipulation and analysis.
+- **`NumPy`**: The fundamental package for numerical computing in Python.
+- **`Matplotlib`**: Create static, animated, and interactive visualizations.
+- **`Seaborn`**: Beautiful visualizations for statistical data analysis.
 
 Whether you're a beginner or aspiring data scientist, this toolkit will help you efficiently process and analyze data for useful insights.
 

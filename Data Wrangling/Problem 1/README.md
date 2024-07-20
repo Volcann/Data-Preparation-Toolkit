@@ -1,130 +1,182 @@
-<h1><span style="color: lightblue;"> 📊 Data Wrangling ⚡️</span></h1>
-The process of cleaning, transforming, and organizing raw data into a structured and usable format for analysis.
+<h2><span style="color: red;"> 🛑 Patients in a clincal trail </span></h2> 
+- Summary<br>
+- Address issues within the dataset combine and make documents<br>
 
-### What is Data Wrangling? 🛠️
-Data wrangling, or data munging, involves cleaning, transforming, and organizing raw data into a structured format for analysis. It's essential for ensuring data quality and usability.
+### 1.🟨 Write a summary for your data 
+- This is a dataset about 503 patients storing their records and also a treatment/treatment_cuts of which 280 + 70 = 350 patients participated in a clinical trial. 
+- None of the patients were using Novodra (a popular injectable insulin) or Auralin (the oral insulin being researched) as their primary source of insulin before.
+- All were experiencing elevated HbA1c levels(Sugar level in desi language).
+- All 350 patients were treated with Novodra and Auralin to record the difference in change in start and end of the trails.
+- Data about patients feeling some adverse effects after the trails were also recorded.
 
-### Key Steps ⭐️:
-1. **🟪 Data Collection and Gathering Data** 📊
-2. **🟪 Data Assessment** 🔄
-3. **🟪 Data Cleaning** 🧼
-4. **🟪 Feature Engineering**🔳
+### 2.🟨 Colomn Description 
+- **<span style="color: red;">💥 Table</span>** - `patients`<br>
+1. **patient_id**: Unique identifier for each patient.
+2. **assigned_sex**: Sex assigned to the patient at birth (e.g., male, female, other).
+3. **given_name**: First name of the patient.
+4. **surname**: Last name (family name) of the patient.
+5. **address**: Street address where the patient resides.
+6. **city**: City where the patient resides.
+7. **state**: State or province where the patient resides.
+8. **zip_code**: Postal code for the patient's address.
+9. **country**: Country where the patient resides.
+10. **contact**: Contact information for the patient, typically a phone number or email address.
+11. **birthdate**: Date of birth of the patient.
+12. **weight**: Weight of the patient, usually measured in kilograms or pounds.
+13. **height**: Height of the patient, usually measured in centimeters or inches.
+14. **bmi**: Body Mass Index (BMI) of the patient, a value derived from the weight and height.
 
-## Detail Description 🗒️
-### 🟪 Data Collection and Gathering Data 📊
-Data collection is the process of gathering raw data from different sources to analyze and make decisions. Here’s how you can collect data:
+- **<span style="color: red;">💥 Table</span>** - `treatments`<br>
+1. **given_name**: First name of the patient.
+2. **surname**: Last name (family name) of the patient.
+3. **auralin**:  Dosage of the medication Auralin prescribed to the patient, measured in units (e.g., 22u - 30u).
+4. **novodra**:  Dosage of the medication Novodra prescribed to the patient, measured in units (e.g., 22u - 30u).
+5. **hba1c_start**: Initial HbA1c level (percentage) at the beginning of the monitoring period.
+6. **hba1c_end**: Final HbA1c level (percentage) at the end of the monitoring period.
+7. **hba1c_change**: Change in HbA1c level (percentage) from the start to the end of the monitoring period.
 
-- **CSV Files**:
-  - **Description**: CSV (Comma-Separated Values) files are simple text files where data is separated by commas. They're commonly used for storing tabular data.
-  - **Example**: You can load CSV files using Pandas in Python:
-    ```python
-    import pandas as pd
-    df = pd.read_csv('file.csv')
-    ```
-- **APIs**:
-  - **Description**: APIs (Application Programming Interfaces) allow you to retrieve data from web services. They provide a way for different software systems to communicate.
-  - **Example**: You can use requests to fetch data from an API:
-    ```python
-    import requests
-    response = requests.get('https://api.example.com/data')
-    data = response.json()
-    ```
-- **Web Scraping**:
-  - **Description**: Web scraping involves extracting data from websites. This is done by parsing HTML or using specific web scraping tools.
-  - **Example**: You can use BeautifulSoup in Python to scrape web data:
-    ```python
-    from bs4 import BeautifulSoup
-    import requests
-    response = requests.get('https://example.com')
-    soup = BeautifulSoup(response.text, 'html.parser')
-    ```
-- **Databases**:
-  - **Description**: Databases store data in structured formats and can be queried to retrieve specific information. Common types include SQL and NoSQL databases.
-  - **Example**: You can connect to a SQL database using SQLAlchemy:
-    ```python
-    from sqlalchemy import create_engine
-    engine = create_engine('sqlite:///database.db')
-    df = pd.read_sql('SELECT * FROM table', engine)
-    ```
+- **<span style="color: red;">💥 Table</span>** - `treatments_cuts`<br>
+1. **given_name**: First name of the patient.
+2. **surname**: Last name (family name) of the patient.
+3. **auralin**:  Dosage of the medication Auralin prescribed to the patient, measured in units (e.g., 22u - 30u).
+4. **novodra**:  Dosage of the medication Novodra prescribed to the patient, measured in units (e.g., 22u - 30u).
+5. **hba1c_start**: Initial HbA1c level (percentage) at the beginning of the monitoring period.
+6. **hba1c_end**: Final HbA1c level (percentage) at the end of the monitoring period.
+7. **hba1c_change**: Change in HbA1c level (percentage) from the start to the end of the monitoring period.
 
-### 🟪 Data Assessment 🔄
-Data assessment is the process of evaluating your dataset to find issues such as missing values, errors, or inconsistencies. This step helps you understand the state of your data before you start cleaning it.
+- **<span style="color: red;">💥 Table</span>** - `adverse_reactions`<br>
+1. **given_name**: First name of the patient.
+2. **surname**: Last name (family name) of the patient.
+3. **adverse_reaction**: Description of any negative or unintended reactions experienced by the patient, typically as a result of medication or treatment.
 
-⭐️ **Basic Steps**
-- **Manual Assessment**:
-  - **Export and Review**: Save your dataset as a spreadsheet and visually inspect it for issues.
-- **Automatic Assessment**:
-  - **Programmatic Checks**: Use tools like Pandas to automatically view and analyze your data for problems.
+### 3.🟨 Add any additional information
+- Insulin resistance varies person to person, which is why both starting median daily dose and ending median daily dose are required, i.e., to calculate change in dose.
+- It is important to test drugs and medical products in the people they are meant to help. 
+- People of different age, race, sex, and ethnic group must be included in clinical trials mmoreover this diversity is reflected in the patients table.
 
-### Necessary Steps
-- **Data Profiling**:
-  - **Examine Structure**: Look at how the data is organized and understand its relationships.
-- **Data Quality Assessment**:
-  - **Check for Issues**: Identify missing values, duplicates, inconsistent formats, and incorrect data types.
-- **Data Consistency**:
-  - **Ensure Rules**: Verify that data meets specific rules like value ranges, uniqueness of keys, and referential integrity.
-- **Documentation and Summarization**:
-  - **Record Findings**: Document all issues, their potential impact, and suggestions for cleaning and transforming the data.
-  
-### 🟪 Data Cleaning 🧼
-Data cleaning involves fixing or removing incorrect, corrupted, or incomplete data to ensure your dataset is accurate and ready for analysis.
+### 4.🟨 Issues with the dataset 🛑
+#### ⭐️ Step 1 Dirty Data
+- Duplicated data 
+- Missing Data 
+- Corrupt Data
+- Inaccurate Data
 
-⭐️ **Basic Steps**
-- **Handle Missing Data**:
-  - **Imputation**: Fill in missing values with the mean, median, mode, or use advanced methods.
-  - **Removal**: Delete rows or columns with too many missing values.
-  - **Example**:
-    ```python
-    df.fillna(df.mean(), inplace=True)
-    ```
-- **Remove Duplicates and Correct Errors**:
-  - **Remove Duplicates**: Find and delete duplicate rows.
-  - **Correct Errors**: Fix errors or inconsistencies in the data (e.g., typos).
-  - **Example**:
-    ```python
-    df.drop_duplicates(inplace=True)
-    ```
+## Documented Description 🌫️
+- **<span style="color: red;">💥 Table</span>** - `patients`<br>
+            1. Have no Duplicate rows and colomn.<br>
+            2. Have 12 missing or null values data in following columns.<br>
+                - `address`<br>
+                - `city`<br> 
+                - `state`<br>	 
+                - `zip_code`<br>	
+                - `country`<br>	
+                - `contact`<br>
+            3. Following Colomns have corrupted data entered.<br>
+                - `zip_code` : Some time 4-digit of zip code is entered.<br>	
+                - `contact` : Number and email address is provided combine(e.g formate : 951-719-9170email@gmail.com).<br>
+                - `state` : State in some colomn provided as abreviated (e.g NewYork : NY).<br>
+            4. Inacurrate data:<br>
+                - `zip_code` : Wrong datatype for this colomn is selected.<br>
+                - `weight` : The weight has not been entered accurately have outliers.<br>
+                - `height` : The height has also not been entered accurately have outliers.<br>
+            
+- **<span style="color: red;">💥 Table</span>** - `treatments`<br>
+            1. Have 1 Duplicate row.<br>
+            2. Have 109 missing or null values data in following columns.<br>
+                - `hba1c_change`<br>
+            3. Following Colomns have corrupted data entered.<br>
+                - `auralin` : Some times ( '-' ) is entered in place where patients dont use auralin.<br>
+                - `novodra` : Some times ( '-' ) is entered in place where patients dont use novodra.<br>
+            4. Inacurrate data:<br>
+                - `auralin` : The dose of the medicine written with the unit `u`.<br>
+                - `novodra` : The dose of the medicine written with the unit `u`.<br>
 
-### 🟪 Feature Engineering 🔧
-Feature engineering is about creating and modifying features (columns) in your dataset to make it better for analysis and machine learning.
+- **<span style="color: red;">💥 Table</span>** - `treatments_cut`<br>
+            1. Have 0 Duplicate row.<br>
+            2. Have 28 missing or null value in data.<br>
+                - `hba1c_change`<br>
+            3. Following Colomns have corrupted data entered.<br>
+                - `auralin` : Some times ( '-' ) is entered in place where patients dont use auralin.<br>
+                - `novodra` : Some times ( '-' ) is entered in place where patients dont use novodra.<br>
+            4. Inacurrate data:<br>
+                - `auralin` : The dose of the medicine written with the unit `u`.<br>
+                - `novodra` : The dose of the medicine written with the unit `u`.<br>
 
-⭐️ **Basic Steps**
-- **Create New Features**:
-  - **Combine Features**: Make new columns by combining existing ones (e.g., total cost = quantity * price).
-  - **Extract Date/Time Info**: Break down dates into year, month, etc.
-  - **Example**: 
-    ```python
-    df['total_cost'] = df['quantity'] * df['price']
-    ```
-- **Transform Features**:
-  - **Scale Features**: Adjust the range of numerical values so they're similar.
-  - **Encode Categorical Data**: Convert text categories into numbers.
-  - **Example**:
-    ```python
-    from sklearn.preprocessing import StandardScaler
-    scaler = StandardScaler()
-    df[['feature1', 'feature2']] = scaler.fit_transform(df[['feature1', 'feature2']])
-    ```
-- **Handle Outliers**:
-  - **Find and Treat Outliers**: Remove or adjust extreme values that can skew your data.
-  - **Example**:
-    ```python
-    df = df[(df['feature'] >= lower_bound) & (df['feature'] <= upper_bound)]
-    ```
-- **Feature Selection**:
-  - **Remove Unneeded Features**: Drop columns that don’t help your analysis.
-  - **Example**:
-    ```python
-    df.drop(['unneeded_feature1', 'unneeded_feature2'], axis=1, inplace=True)
-    ```
-- **Polynomial Features**:
-  - **Add Non-Linear Features**: Create features that capture more complex patterns.
-  - **Example**:
-    ```python
-    from sklearn.preprocessing import PolynomialFeatures
-    poly = PolynomialFeatures(degree=2)
-    df_poly = poly.fit_transform(df[['feature1', 'feature2']])
-    ```
+- **<span style="color: red;">💥 Table</span>** - `adverse_reactions`<br>
+            1. Have 0 Duplicate row.<br>
+            2. Have 0 missing or null value in data.<br>
+            3. No corrupted data entered.<br>
+            4. No inacurrate data:<br>
 
-## 📅 Worked on at least one dataset daily and solved all the above scenarios.
-Happy coding and data prepping! 🚀
+#### ⭐️ Step 2 Messy Data  
+   - Structural issues ,Each variable forms a single column.
+   - Each observation forms a row.
+   - Each observational unit forms a table.
+
+## Documented Description 🌫️
+- **<span style="color: red;">💥 Table</span>** - `patients`<br>
+            1.  Structural issues:<br>
+                - `contact` : Number and email address is provided combine(e.g formate : 951-719-9170email@gmail.com). <br>
+                - `address`	,`city`	 ,`state` ,`country` can be in one separate table.<br>
+
+- **<span style="color: red;">💥 Table</span>** - `treatments`<br>
+            1.  Structural issues:<br>
+                - `auralin` and `novodra` not in a single table.<br>
+       
+- **<span style="color: red;">💥 Table</span>**- `treatments_cut`<br>
+            1.  Structural issues:<br>
+                - `auralin` and `novodra` not in a single table.<br>
+
+- **<span style="color: red;">💥 Table</span>** - `adverse_reactions`<br>
+
+### 5.🟨 Providing solutions of issues within the dataset 🛑
+- **<span style="color: red;">💥 Table</span>** - `patients`<br>
+            1. **No Duplicate Rows and Columns:**<br>
+                - Ensure the table has no duplicate rows and columns by using the Pandas functions `drop_duplicates()` for rows and checking column names for duplicates.<br>
+            2. **Missing or Null Values:**<br>
+                - Columns with missing values: `address`, `city`, `state`, `zip_code`, `country`, `contact`<br>
+                - Handle missing values using methods like `fillna()` or `dropna()` based on the context.<br>
+            3. **Corrupted Data:**<br>
+                - **`zip_code`**: Ensure all zip codes are 5 digits long by applying a transformation to add leading zeros if necessary.<br>
+                - **`contact`**: Split combined contact information into separate `phone_number` and `email` columns using string manipulation functions.<br>
+                - **`state`**: Standardize state names by converting abbreviations to full state names using a mapping dictionary.<br>
+            4. **Inaccurate Data:**<br>
+                - **`zip_code`**: Correct the datatype by converting the column to string type using `astype(str)`.<br>
+                - **`weight`**: Identify and handle outliers by using statistical methods such as Z-scores or IQR to filter out anomalous values.<br>
+                - **`height`**: Similarly, identify and handle outliers using statistical methods to ensure accurate entries.<br>
+ 
+- **<span style="color: red;">💥 Table</span>** - `treatments`<br>
+            1. **Duplicate Row:**<br>
+                - Remove duplicate rows using `drop_duplicates()`.<br>
+            2. **Missing or Null Values:**<br>
+                - Column with missing values: `hba1c_change`<br>
+                - Handle missing values by either filling them with an appropriate statistic (mean, median) or removing the rows if it does not impact analysis significantly.<br>
+            3. **Corrupted Data:**<br>
+                - **`auralin`**: Replace ( - ) with `NaN` or `0` to indicate no usage.<br>
+                - **`novodra`**: Replace ( - ) with `NaN` or `0` to indicate no usage.<br>
+            4. **Inaccurate Data:**<br>
+                - **`auralin`**: Remove the unit `u` from dosage values and ensure the column is numeric using string replacement and conversion.<br>
+                - **`novodra`**: Similarly, remove the unit `u` from dosage values and ensure the column is numeric.<br>
+
+- **<span style="color: red;">💥 Table</span>** - `treatments_cut`<br>
+            1. **No Duplicate Rows:**<br>
+               - Ensure the table has no duplicate rows.<br>
+            2. **Missing or Null Values:**<br>
+               - Column with missing values: `hba1c_change`<br>
+               - Handle missing values using methods like `fillna()` or `dropna()` based on the context.<br>
+            3. **Corrupted Data:**<br>
+                - **`auralin`**: Replace ( - ) with `NaN` or `0` to indicate no usage.
+                - **`novodra`**: Replace ( - ) with `NaN` or `0` to indicate no usage.
+            4. **Inaccurate Data:**<br>
+                - **`auralin`**: Remove the unit `u` from dosage values and ensure the column is numeric using string replacement and conversion.<br>
+                - **`novodra`**: Similarly, remove the unit `u` from dosage values and ensure the column is numeric.<br>
+
+- **<span style="color: red;">💥 Table</span>** - `adverse_reactions`<br>
+            1. **No Duplicate Rows:**<br>
+                - Ensure the table has no duplicate rows.<br>
+            2. **No Missing or Null Values:**<br>
+                - Verify that there are no missing or null values.<br>
+            3. **No Corrupted Data:**<br>
+                - Confirm that all data entries are correct and uncorrupted.<br>
+            4. **No Inaccurate Data:**<br>
+                - Verify the accuracy of all data entries.<br>

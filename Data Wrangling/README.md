@@ -6,7 +6,7 @@ Data wrangling, or data munging, involves cleaning, transforming, and organizing
 
 ### Key Steps ⭐️:
 1. **🟪 Data Collection and Gathering Data** 📊
-2. **🟪 Assessing Data** 🔄
+2. **🟪 Data Assessment** 🔄
 3. **🟪 Data Cleaning** 🧼
 
 ## Detail Description 🗒️
@@ -17,7 +17,7 @@ Data wrangling, or data munging, involves cleaning, transforming, and organizing
      - `iii. Web Scraping`
      - `iv. Databases ` 
 
-2. **🟪 Assessing Data** 🔄
+2. **🟪 Data Assessment** 🔄
     - The process you're describing is often referred to as **data assessment** or **data auditing** within the broader field of data wrangling. 
     - During this phase, you evaluate the data to identify any issues, such as missing values, inconsistencies, or errors, but you do not necessarily correct them.
 

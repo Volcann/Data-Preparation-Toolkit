@@ -8,8 +8,6 @@ Welcome to **DataCraftTools**, your go-to guide for essential data preparation i
 - **`Matplotlib`**: Create static, animated, and interactive visualizations.
 - **`Seaborn`**: Beautiful visualizations for statistical data analysis.
 
-Whether you're a beginner or aspiring data scientist, this toolkit will help you efficiently process and analyze data for useful insights.
-
 ## 📊 Data Analysis Process Steps
 
 1. **Asking Questions**

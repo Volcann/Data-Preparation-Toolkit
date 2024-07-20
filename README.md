@@ -21,6 +21,7 @@ Whether you're a beginner or aspiring data scientist, this toolkit will help you
       - iv. `Databases`
    - 🟪 Assessing Data
    - 🟪 Cleaning Data
+   - 🟪 Feature Engineering
 3. **Exploratory Data Analysis**
 4. **Drawing Conclusions**
 5. **Communicating Results**

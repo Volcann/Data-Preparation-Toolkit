@@ -1,130 +1,82 @@
-<h1><span style="color: lightblue;"> 📊 Data Wrangling ⚡️</span></h1>
-The process of cleaning, transforming, and organizing raw data into a structured and usable format for analysis.
+<h2><span style="color: red;"> 🛑 About the dataset </span></h2> 
+- Summary<br>
+- Address issues within the dataset combine and make documents<br>
 
-### What is Data Wrangling? 🛠️
-Data wrangling, or data munging, involves cleaning, transforming, and organizing raw data into a structured format for analysis. It's essential for ensuring data quality and usability.
+### 1. 🟨 Write a summary for your data
+- **The Titanic Tragedy Dataset**
+- The RMS Titanic set sail on its maiden voyage in 1912, only to become infamous for its tragic sinking. This dataset provides insights into the passengers aboard the ill-fated ship.
+- **Dataset Overview**: Contains information about 891 passengers, including their survival status.
+- **Survival Statistics**: Of the 891 passengers, 549 did not survive, while 342 survived the disaster.
+- **Passenger Information**: The dataset includes various details about the passengers, such as their age, class, and ticket information, providing a glimpse into the demographics and circumstances of those on board.
 
-### Key Steps ⭐️:
-1. **🟪 Data Collection and Gathering Data** 📊
-2. **🟪 Data Assessment** 🔄
-3. **🟪 Data Cleaning** 🧼
-4. **🟪 Feature Engineering**🔳
+### 2. 🟨 Column Description
+- **<span style="color: red;">💥 Table</span>** - `titanic_dataset`<br>
+  - **PassengerId**: Unique identifier for each passenger.
+  - **Survived**: Survival status (0 = No, 1 = Yes).
+  - **Pclass**: Passenger class (1, 2, or 3), indicating the level of luxury and accommodation on the ship.
+  - **Name**: Name of the passenger (first name ,last name ,nickname as well).
+  - **Sex**: Gender of the passenger (male or female).
+  - **Age**: Age of the passenger at the time of the voyage.
+  - **SibSp**: Number of siblings or spouses aboard the Titanic.
+  - **Parch**: Number of parents or children aboard the Titanic.
+  - **Ticket**: Ticket number assigned to the passenger.
+  - **Fare**: Amount paid for the ticket.
+  - **Cabin**: Cabin number where the passenger stayed (if available).
+  - **Embarked**: Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton).
 
-## Detail Description 🗒️
-### 🟪 Data Collection and Gathering Data 📊
-Data collection is the process of gathering raw data from different sources to analyze and make decisions. Here’s how you can collect data:
+### 3. 🟨 Add any additional information
+- **Survival Rate**: Provides insights into survival rates across different passenger classes and demographics.
 
-- **CSV Files**:
-  - **Description**: CSV (Comma-Separated Values) files are simple text files where data is separated by commas. They're commonly used for storing tabular data.
-  - **Example**: You can load CSV files using Pandas in Python:
-    ```python
-    import pandas as pd
-    df = pd.read_csv('file.csv')
-    ```
-- **APIs**:
-  - **Description**: APIs (Application Programming Interfaces) allow you to retrieve data from web services. They provide a way for different software systems to communicate.
-  - **Example**: You can use requests to fetch data from an API:
-    ```python
-    import requests
-    response = requests.get('https://api.example.com/data')
-    data = response.json()
-    ```
-- **Web Scraping**:
-  - **Description**: Web scraping involves extracting data from websites. This is done by parsing HTML or using specific web scraping tools.
-  - **Example**: You can use BeautifulSoup in Python to scrape web data:
-    ```python
-    from bs4 import BeautifulSoup
-    import requests
-    response = requests.get('https://example.com')
-    soup = BeautifulSoup(response.text, 'html.parser')
-    ```
-- **Databases**:
-  - **Description**: Databases store data in structured formats and can be queried to retrieve specific information. Common types include SQL and NoSQL databases.
-  - **Example**: You can connect to a SQL database using SQLAlchemy:
-    ```python
-    from sqlalchemy import create_engine
-    engine = create_engine('sqlite:///database.db')
-    df = pd.read_sql('SELECT * FROM table', engine)
-    ```
+### 4. 🟨 Issues with the Dataset 🛑
+#### ⭐️ Step 1: Dirty Data
+- **Duplicated Data**: 
+  - The dataset may contain duplicate records, which can skew analysis and results.
+- **Missing Data**: 
+  - Some columns have missing values (e.g., `Age`, `Cabin`, `Embarked`), which need to be handled to ensure completeness.
+- **Corrupt Data**: 
+  - Entries like `NaN` in `Age`, `Cabin`, or `Embarked` might indicate data corruption or incomplete data collection.
+- **Inaccurate Data**: 
+  - Potential inaccuracies in fields like `Fare`, `Age`, or `Cabin` could impact the analysis.
 
-### 🟪 Data Assessment 🔄
-Data assessment is the process of evaluating your dataset to find issues such as missing values, errors, or inconsistencies. This step helps you understand the state of your data before you start cleaning it.
+#### ⭐️ Step 2: Messy Data
+- **Structural Issues**: 
+  - Ensure that each variable (column) is clearly defined and correctly placed in its respective column.
+  - Each observation (row) should be distinct and correctly formatted.
+  - The dataset should be organized into a single table where each column represents a specific variable, each row represents an observation, and the table contains the entire dataset.
 
-⭐️ **Basic Steps**
-- **Manual Assessment**:
-  - **Export and Review**: Save your dataset as a spreadsheet and visually inspect it for issues.
-- **Automatic Assessment**:
-  - **Programmatic Checks**: Use tools like Pandas to automatically view and analyze your data for problems.
+### 5. 🟨 Providing Solutions to Issues within the Dataset 🛑
+- **<span style="color: red;">💥 Table</span>** - `titanic_dataset`<br>
+1. **Duplicated Data**:
+   - **Solution**: Identify and remove duplicate rows. Use data processing tools to check for duplicates and eliminate them. In Python with Pandas, you can use:
+     ```python
+     titanic_dataset = titanic_dataset.drop_duplicates()
+     ```
 
-### Necessary Steps
-- **Data Profiling**:
-  - **Examine Structure**: Look at how the data is organized and understand its relationships.
-- **Data Quality Assessment**:
-  - **Check for Issues**: Identify missing values, duplicates, inconsistent formats, and incorrect data types.
-- **Data Consistency**:
-  - **Ensure Rules**: Verify that data meets specific rules like value ranges, uniqueness of keys, and referential integrity.
-- **Documentation and Summarization**:
-  - **Record Findings**: Document all issues, their potential impact, and suggestions for cleaning and transforming the data.
-  
-### 🟪 Data Cleaning 🧼
-Data cleaning involves fixing or removing incorrect, corrupted, or incomplete data to ensure your dataset is accurate and ready for analysis.
+2. **Missing Data**:
+   - **Solution**:
+     - **Imputation**: Fill missing values with appropriate values (e.g., median for numerical columns, mode for categorical columns). For `Age`, you might use the median or mean of the column. For categorical data like `Embarked`, you could use the mode.
+       ```python
+       titanic_dataset['Age'].fillna(titanic_dataset['Age'].median(), inplace=True)
+       titanic_dataset['Embarked'].fillna(titanic_dataset['Embarked'].mode()[0], inplace=True)
+       ```
+     - **Deletion**: Remove rows or columns with excessive missing data if imputation is not feasible or if it would introduce significant bias.
 
-⭐️ **Basic Steps**
-- **Handle Missing Data**:
-  - **Imputation**: Fill in missing values with the mean, median, mode, or use advanced methods.
-  - **Removal**: Delete rows or columns with too many missing values.
-  - **Example**:
-    ```python
-    df.fillna(df.mean(), inplace=True)
-    ```
-- **Remove Duplicates and Correct Errors**:
-  - **Remove Duplicates**: Find and delete duplicate rows.
-  - **Correct Errors**: Fix errors or inconsistencies in the data (e.g., typos).
-  - **Example**:
-    ```python
-    df.drop_duplicates(inplace=True)
-    ```
 
-### 🟪 Feature Engineering 🔧
-Feature engineering is about creating and modifying features (columns) in your dataset to make it better for analysis and machine learning.
+3. **Corrupt Data**:
+   - **Solution**: Identify and address anomalies or incorrect values.
+     - **Check and Correct Errors**: For columns like `Fare`, ensure there are no negative values or extreme outliers unless they are valid. 
+       ```python
+       titanic_dataset = titanic_dataset[titanic_dataset['Fare'] >= 0]
+       ```
+     - **Standardization**: Ensure consistent formatting (e.g., currency symbols removed from `Fare` values).
 
-⭐️ **Basic Steps**
-- **Create New Features**:
-  - **Combine Features**: Make new columns by combining existing ones (e.g., total cost = quantity * price).
-  - **Extract Date/Time Info**: Break down dates into year, month, etc.
-  - **Example**: 
-    ```python
-    df['total_cost'] = df['quantity'] * df['price']
-    ```
-- **Transform Features**:
-  - **Scale Features**: Adjust the range of numerical values so they're similar.
-  - **Encode Categorical Data**: Convert text categories into numbers.
-  - **Example**:
-    ```python
-    from sklearn.preprocessing import StandardScaler
-    scaler = StandardScaler()
-    df[['feature1', 'feature2']] = scaler.fit_transform(df[['feature1', 'feature2']])
-    ```
-- **Handle Outliers**:
-  - **Find and Treat Outliers**: Remove or adjust extreme values that can skew your data.
-  - **Example**:
-    ```python
-    df = df[(df['feature'] >= lower_bound) & (df['feature'] <= upper_bound)]
-    ```
-- **Feature Selection**:
-  - **Remove Unneeded Features**: Drop columns that don’t help your analysis.
-  - **Example**:
-    ```python
-    df.drop(['unneeded_feature1', 'unneeded_feature2'], axis=1, inplace=True)
-    ```
-- **Polynomial Features**:
-  - **Add Non-Linear Features**: Create features that capture more complex patterns.
-  - **Example**:
-    ```python
-    from sklearn.preprocessing import PolynomialFeatures
-    poly = PolynomialFeatures(degree=2)
-    df_poly = poly.fit_transform(df[['feature1', 'feature2']])
-    ```
+4. **Inaccurate Data**:
+   - **Solution**: Validate data accuracy by cross-checking with reliable sources or domain knowledge.
+     - **Consistency Checks**: Verify that values make sense in the context (e.g., `Age` should be within a reasonable range).
+     - **Manual Review**: For critical columns, conduct a manual review or perform data validation checks to catch inaccuracies.
 
-## 📅 Worked on at least one dataset daily and solved all the above scenarios.
-Happy coding and data prepping! 🚀
+5. **Structural Issues**:
+   - **Solution**:
+     - **Ensure Proper Column and Row Structure**: Verify that each column represents a unique variable and each row represents a single observation.
+     - **Normalization**: If any columns contain nested data or multiple values, normalize them into separate columns or tables as needed.
+     - **Consistency**: Check for consistency in data types across columns and ensure no mixed types within a single column.

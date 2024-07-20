@@ -1,8 +1,8 @@
-<h2><span style="color: red;"> 🛑 About the dataset </span></h2> 
+<h2><span style="color: red;"> 🛑 Titanic dataset </span></h2> 
 - Summary<br>
 - Address issues within the dataset combine and make documents<br>
 
-### 1. 🟨 Write a summary for your data
+### 1. 🟨 Summary of data
 - **The Titanic Tragedy Dataset**
 - The RMS Titanic set sail on its maiden voyage in 1912, only to become infamous for its tragic sinking. This dataset provides insights into the passengers aboard the ill-fated ship.
 - **Dataset Overview**: Contains information about 891 passengers, including their survival status.

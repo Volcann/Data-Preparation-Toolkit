@@ -1,4 +1,4 @@
-<h2><span style="color: red;"> 🛑 Patients in a clincal trail </span></h2> 
+<h2><span style="color: red;"> 🛑 Patients in the clinical trial </span></h2> 
 - Summary<br>
 - Address issues within the dataset combine and make documents<br>
 
